@@ -15,7 +15,7 @@ This repository is used to securely store and version-control the latest KeePass
 Clone this repository (if not already):
 
 ```sh
-git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git
+git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git && cd KeePassXC-Secure-Vault/
 ```
 
 Place your KeePassXC database (`Passwords.kdbx`) inside this directory.
@@ -56,8 +56,7 @@ Then add:
 If you need to restore your database on another device:
 
 ```sh
-git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git 
-cp keepassxc-secure-vault/Passwords.kdbx ~/Documents/  
+git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git && cd KeePassXC-Secure-Vault/ && cp ./Passwords.kdbx ~/Documents/
 ```
 
 ## Security Notes
