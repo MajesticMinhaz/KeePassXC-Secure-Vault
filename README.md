@@ -21,15 +21,9 @@ git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git && cd KeePass
 Place your KeePassXC database (`Passwords.kdbx`) inside this directory.
 
 ### 2. **Run the Backup Script**
-Before running, ensure the script has execute permissions:
+Before running, ensure the script has execute permissions and to update and push the latest KeePassXC database run:
 ```sh
-chmod +x update_keepass.sh
-```
-
-To manually update and push the latest KeePassXC database, run:
-
-```sh
-./update_keepass.sh  
+chmod +x update_keepass.sh && ./update_keepass.sh
 ```
 
 This will:\
