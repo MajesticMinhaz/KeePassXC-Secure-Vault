@@ -14,16 +14,29 @@ This repository is used to securely store and version-control the latest KeePass
 
 Clone this repository (if not already):
 
-```sh
-git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault && cd ~/KeePassXC-Secure-Vault/
+```bash
+if [ -d "~/KeePassXC-Secure-Vault" ]; then
+    read -p "Directory exists. Do you want to overwrite it? (y/n): " choice
+    if [ "$choice" = "y" ]; then
+        rm -rf ~/KeePassXC-Secure-Vault
+        git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault
+    else
+        echo "Keeping existing directory."
+        cd ~/KeePassXC-Secure-Vault && git pull
+    fi
+else
+    git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault
+fi
+cd ~/KeePassXC-Secure-Vault && chmod +x ~/KeePassXC-Secure-Vault/update_keepass.sh
 ```
 
 Place your KeePassXC database (`Passwords.kdbx`) inside this directory.
 
 ### 2. **Run the Backup Script**
 Before running, ensure the script has execute permissions and to update and push the latest KeePassXC database run:
-```sh
-chmod +x ~/KeePassXC-Secure-Vault/update_keepass.sh && ~/KeePassXC-Secure-Vault/update_keepass.sh
+
+```bash
+~/KeePassXC-Secure-Vault/update_keepass.sh
 ```
 
 This will:\
@@ -49,8 +62,20 @@ Then add:
 
 If you need to restore your database on another device:
 
-```sh
-git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault && cd ~/KeePassXC-Secure-Vault && cp ./Passwords.kdbx ~/Documents/
+```bash
+if [ -d "~/KeePassXC-Secure-Vault" ]; then
+    read -p "Directory exists. Do you want to overwrite it? (y/n): " choice
+    if [ "$choice" = "y" ]; then
+        rm -rf ~/KeePassXC-Secure-Vault
+        git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault
+    else
+        echo "Keeping existing directory."
+        cd ~/KeePassXC-Secure-Vault && git pull
+    fi
+else
+    git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault
+fi
+cd ~/KeePassXC-Secure-Vault && cp ./Passwords.kdbx ~/Documents/
 ```
 
 ## Security Notes
