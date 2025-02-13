@@ -15,7 +15,7 @@ This repository is used to securely store and version-control the latest KeePass
 Clone this repository (if not already):
 
 ```sh
-git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git && cd KeePassXC-Secure-Vault/
+git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault && cd ~/KeePassXC-Secure-Vault/
 ```
 
 Place your KeePassXC database (`Passwords.kdbx`) inside this directory.
@@ -23,7 +23,7 @@ Place your KeePassXC database (`Passwords.kdbx`) inside this directory.
 ### 2. **Run the Backup Script**
 Before running, ensure the script has execute permissions and to update and push the latest KeePassXC database run:
 ```sh
-chmod +x update_keepass.sh && ./update_keepass.sh
+chmod +x ~/KeePassXC-Secure-Vault/update_keepass.sh && ~/KeePassXC-Secure-Vault/update_keepass.sh
 ```
 
 This will:\
@@ -50,7 +50,7 @@ Then add:
 If you need to restore your database on another device:
 
 ```sh
-git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git && cd KeePassXC-Secure-Vault/ && cp ./Passwords.kdbx ~/Documents/
+git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault && cd ~/KeePassXC-Secure-Vault && cp ./Passwords.kdbx ~/Documents/
 ```
 
 ## Security Notes
