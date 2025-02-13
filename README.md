@@ -14,8 +14,11 @@ This repository is used to securely store and version-control the latest KeePass
 
 Clone this repository (if not already):
 
+Change to $HOME to avoid issues if you're inside the KeePassXC-Secure-Vault directory
 ```bash
-if [ -d "~/KeePassXC-Secure-Vault" ]; then
+cd ~ 
+
+if [ -d ~/KeePassXC-Secure-Vault ]; then
     read -p "Directory exists. Do you want to overwrite it? (y/n): " choice
     if [ "$choice" = "y" ]; then
         rm -rf ~/KeePassXC-Secure-Vault
@@ -27,7 +30,9 @@ if [ -d "~/KeePassXC-Secure-Vault" ]; then
 else
     git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault
 fi
+
 cd ~/KeePassXC-Secure-Vault && chmod +x ~/KeePassXC-Secure-Vault/update_keepass.sh
+
 ```
 
 Place your KeePassXC database (`Passwords.kdbx`) inside this directory.
@@ -62,8 +67,11 @@ Then add:
 
 If you need to restore your database on another device:
 
+Change to $HOME to avoid issues if you're inside the KeePassXC-Secure-Vault directory
 ```bash
-if [ -d "~/KeePassXC-Secure-Vault" ]; then
+cd ~
+
+if [ -d ~/KeePassXC-Secure-Vault ]; then
     read -p "Directory exists. Do you want to overwrite it? (y/n): " choice
     if [ "$choice" = "y" ]; then
         rm -rf ~/KeePassXC-Secure-Vault
@@ -75,7 +83,9 @@ if [ -d "~/KeePassXC-Secure-Vault" ]; then
 else
     git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault
 fi
+
 cd ~/KeePassXC-Secure-Vault && cp ./Passwords.kdbx ~/Documents/
+
 ```
 
 ## Security Notes
