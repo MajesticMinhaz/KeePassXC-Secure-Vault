@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the path to your KeePassXC database in /mnt/backup/KeePassXC/
-DB_PATH="$HOME/KeePassXC/Passwords.kdbx"  # Change this if needed
+DB_PATH="$HOME/Documents/Passwords.kdbx"  # Change this if needed
 
 # Set the path to the backup location where the Git repository is located
 REPO_PATH="."  # Current directory (can be changed to the actual repo path)
