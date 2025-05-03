@@ -22,13 +22,13 @@ if [ -d ~/KeePassXC-Secure-Vault ]; then
     read -p "Directory exists. Do you want to overwrite it? (y/n): " choice
     if [ "$choice" = "y" ]; then
         rm -rf ~/KeePassXC-Secure-Vault
-        git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault
+        git clone https://github.com/MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault
     else
         echo "Keeping existing directory."
         cd ~/KeePassXC-Secure-Vault && git pull
     fi
 else
-    git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault
+    git clone https://github.com/MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault
 fi
 
 cd ~/KeePassXC-Secure-Vault && chmod +x ~/KeePassXC-Secure-Vault/update_keepass.sh
@@ -75,13 +75,13 @@ if [ -d ~/KeePassXC-Secure-Vault ]; then
     read -p "Directory exists. Do you want to overwrite it? (y/n): " choice
     if [ "$choice" = "y" ]; then
         rm -rf ~/KeePassXC-Secure-Vault
-        git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault
+        git clone https://github.com/MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault
     else
         echo "Keeping existing directory."
         cd ~/KeePassXC-Secure-Vault && git pull
     fi
 else
-    git clone git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault
+    git clone https://github.com/MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault
 fi
 
 cd ~/KeePassXC-Secure-Vault && cp ./Passwords.kdbx ~/Documents/
