@@ -17,22 +17,29 @@ If you need to restore your database:
 
 Change to $HOME to avoid issues if you're inside the KeePassXC-Secure-Vault directory
 ```bash
-cd ~
-
-if [ -d ~/KeePassXC-Secure-Vault ]; then
-    read -p "Directory exists. Do you want to overwrite it? (y/n): " choice
-    if [ "$choice" = "y" ]; then
-        rm -rf ~/KeePassXC-Secure-Vault
-        git clone https://github.com/MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault
-    else
-        echo "Keeping existing directory."
-        cd ~/KeePassXC-Secure-Vault && git pull
-    fi
-else
-    git clone https://github.com/MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault
-fi
-
-cd ~/KeePassXC-Secure-Vault && cp ./Passwords.kdbx ~/Documents/
+cd ~ && \
+if [ -d ~/KeePassXC-Secure-Vault ]; then \
+    read -p "Directory exists. Overwrite? (y/n): " choice && \
+    if [ "$choice" = "y" ]; then \
+        rm -rf ~/KeePassXC-Secure-Vault && \
+        git clone https://github.com/MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault && \
+        cd ~/KeePassXC-Secure-Vault && \
+        git remote set-url origin git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git 2>/dev/null || \
+        echo -e "\nNOTE: To enable SSH later:\n1. Generate keys: ssh-keygen -t ed25519\n2. Add to GitHub: cat ~/.ssh/id_ed25519.pub\n3. Run: git remote set-url origin git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git"; \
+    else \
+        cd ~/KeePassXC-Secure-Vault && \
+        git pull; \
+    fi; \
+else \
+    git clone https://github.com/MajesticMinhaz/KeePassXC-Secure-Vault.git ~/KeePassXC-Secure-Vault && \
+    cd ~/KeePassXC-Secure-Vault && \
+    git remote set-url origin git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git 2>/dev/null || \
+    echo -e "\nNOTE: To enable SSH later:\n1. Generate keys: ssh-keygen -t ed25519\n2. Add to GitHub: cat ~/.ssh/id_ed25519.pub\n3. Run: git remote set-url origin git@github.com:MajesticMinhaz/KeePassXC-Secure-Vault.git"; \
+fi && \
+cd ~/KeePassXC-Secure-Vault && \
+cp ./Passwords.kdbx ~/Documents/ 2>/dev/null && \
+echo -e "\nSUCCESS:\n- Repo cloned/updated\n- SSH configured (if keys exist)\n- Passwords.kdbx copied to ~/Documents/" || \
+echo -e "\nWARNING: Passwords.kdbx not found (but repo is ready)"
 
 ```
 
